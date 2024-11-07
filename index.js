@@ -17,7 +17,7 @@ app.post('/notes', async (req, res) => {
   const { content } = req.body
 
   if(!content) {
-    return res.send('<span>Erro inesperado!</span>')
+    return res.send('<span class="error">Erro inesperado!</span>')
   }
 
   const id = crypto.randomUUID()
@@ -37,7 +37,7 @@ app.get('/share/:id', async (req, res) => {
   const note = await getNote(id)
 
   if(!note) {
-    return res.send('<span class="error">Esta mensagem não existe mais!</span>')
+    return res.send('<span class="error">A mensagem não existe mais!</span>')
   }
 
   if(!note.opened_at) {

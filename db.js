@@ -11,11 +11,11 @@ db.serialize(() => {
   )`)
 })
 
-const saveNote = (id, content) => new Promise ((resolve, reject) => {
+const saveNote = (id, content) => new Promise ((resolve, reject) =>
   db.run(`
     INSERT INTO notes (id, content) VALUES (?, ?)
   `, [id, content], (err) => err ? reject(err) : resolve())
-})
+)
 
 const getNote = (id) => new Promise ((resolve, reject) =>
   db.get(`
@@ -32,8 +32,8 @@ const markNoteAsOpened = (id) => new Promise ((resolve, reject) =>
 const deleteExpiredNotes = () => new Promise ((resolve, reject) =>
   db.run(`
     DELETE FROM notes
-    WHERE opened_at < datetime('now', '-5 minutes', 'localtime')
-    OR opened_at IS NULL AND created_at < datetime('now', '-7 days', localtime')
+    WHERE opened_at < datetime('now', 'localtime' , '-5 minutes')
+    OR opened_at IS NULL AND created_at < datetime('now', 'localtime', '-7 days')
   `, (err) => err ? reject(err) : resolve())
 )
 
