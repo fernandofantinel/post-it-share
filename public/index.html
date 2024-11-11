@@ -17,7 +17,7 @@
       contenteditable="true"
       oninput="document.getElementById('share-button').disabled = !this.textContent.trim()"
     ></div>
-    <button id="share-button" disabled="true" hx-post="/notes" hx-trigger="click" hx-target="#share-link"
+    <button type="button" id="share-button" disabled="true" hx-post="/notes" hx-trigger="click" hx-target="#share-link"
       hx-on:htmx:config-request="event.detail.parameters.content = content.innerHTML" hx-on:htmx:after-request="{
         document.getElementById('share-button').disabled = true;
         document.getElementById('content).innerHTML = ''
