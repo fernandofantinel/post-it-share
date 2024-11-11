@@ -21,10 +21,22 @@
       hx-on:htmx:config-request="event.detail.parameters.content = content.innerHTML" hx-on:htmx:after-request="{
         document.getElementById('share-button').disabled = true;
         document.getElementById('content).innerHTML = ''
+        navigator.clipboard.writeText(document.querySelector('#share-link').textContent)
+        document.querySelector('share-link::after').innerHTML = 'Link copiado para a área de transferência!';
       }">Compartilhar</button>
   </div>
 
   <div id="share-link"></div>
 </body>
+
+<script>
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text)
+    document.querySelector('#clipboardMessage').textContent = 'Link copiado para a área de transferência!'
+    setTimeout(() => {
+      document.querySelector('#clipboardMessage').textContent = ''
+    }, 2000)
+  }
+</script>
 
 </html>

@@ -25,8 +25,9 @@ app.post('/notes', async (req, res) => {
   res.send(`
     <p>Compartilhe sua nota pelo link
       <br>
-      <span>${req.headers.origin}/note/${id}</span>
+      <span onclick=copyToClipboard(textContent)>${req.headers.origin}/note/${id}</span>
     </p>  
+    <p id="clipboardMessage"></p>
   `)
 })
 
