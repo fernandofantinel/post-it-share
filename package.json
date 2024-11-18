@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "node db.js",
     "dev": "node --watch .",
     "start": "node ."
   },
