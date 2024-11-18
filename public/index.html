@@ -16,8 +16,8 @@
     <button type="button" id="share-button" disabled="true" hx-post="/notes" hx-trigger="click" hx-target="#share-link"
       hx-on:htmx:config-request="event.detail.parameters.content = content.innerHTML" hx-on:htmx:after-request="{
         document.getElementById('share-button').disabled = true;
-        document.getElementById('content').innerHTML = ''
-        navigator.clipboard.writeText(document.querySelector('#share-link').textContent)
+        document.getElementById('content').innerHTML = '';
+        navigator.clipboard.writeText(document.querySelector('#share-link').textContent);
         document.querySelector('share-link::after').innerHTML = 'Link copiado para a área de transferência!';
       }">Compartilhar</button>
   </div>
